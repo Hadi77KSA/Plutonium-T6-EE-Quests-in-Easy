@@ -15,8 +15,14 @@ onPlayerConnect()
 	while ( true )
 	{
 		level waittill( "connected", player );
-		player iPrintLn( "^5Mob of the Dead EE Quest in Easy Difficulty" );
+		player thread display_mod_message();
 	}
+}
+
+display_mod_message()
+{
+	flag_wait( "initial_players_connected" );
+	self iPrintLn( "^5Mob of the Dead EE Quest in Easy Difficulty" );
 }
 
 easy_start_alcatraz_sidequest()

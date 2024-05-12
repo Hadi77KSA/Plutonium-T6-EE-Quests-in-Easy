@@ -5,6 +5,10 @@
 main()
 {
 	replaceFunc( maps\mp\zm_prison_spoon::init, ::easy_spoon_init );
+}
+
+init()
+{
 	thread onPlayerConnect();
 }
 
@@ -13,8 +17,14 @@ onPlayerConnect()
 	while ( true )
 	{
 		level waittill( "connected", player );
-		player iPrintLn( "^5Spoon Quest in Easy Difficulty" );
+		player thread display_mod_message();
 	}
+}
+
+display_mod_message()
+{
+	flag_wait( "initial_players_connected" );
+	self iPrintLn( "^5Spoon Quest in Easy Difficulty" );
 }
 
 easy_spoon_init()

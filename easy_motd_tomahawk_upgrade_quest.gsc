@@ -4,6 +4,10 @@
 main()
 {
 	onplayerconnect_callback( ::easy_tomahawk_upgrade_quest );
+}
+
+init()
+{
 	thread onPlayerConnect();
 }
 
@@ -12,8 +16,14 @@ onPlayerConnect()
 	while ( true )
 	{
 		level waittill( "connected", player );
-		player iPrintLn( "^5Hell's Retriever Upgrade Quest in Easy Difficulty" );
+		player thread display_mod_message();
 	}
+}
+
+display_mod_message()
+{
+	flag_wait( "initial_players_connected" );
+	self iPrintLn( "^5Hell's Retriever Upgrade Quest in Easy Difficulty" );
 }
 
 easy_tomahawk_upgrade_quest()
