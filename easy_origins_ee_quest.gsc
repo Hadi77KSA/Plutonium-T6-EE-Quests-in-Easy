@@ -14,7 +14,7 @@ init()
 
 onPlayerConnect()
 {
-	while ( true )
+	for (;;)
 	{
 		level waittill( "connected", player );
 		player thread display_mod_message();
@@ -48,7 +48,7 @@ easy_ee_main_init()
 	flag_init( "ee_sam_portal_active" );
 
 /* 	if ( !is_sidequest_allowed( "zclassic" ) )
-		return;*/
+		return; */
 
 /#
 	level thread setup_ee_main_devgui();
