@@ -23,6 +23,7 @@ onPlayerConnect()
 
 display_mod_message()
 {
+	self endon( "disconnect" );
 	flag_wait( "initial_players_connected" );
 	self iPrintLn( "^5Origins EE Quest in Easy Difficulty" );
 }
