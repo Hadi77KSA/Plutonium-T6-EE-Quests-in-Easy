@@ -31,6 +31,7 @@ onPlayerConnect()
 
 display_mod_message()
 {
+	self endon( "disconnect" );
 	flag_wait( "initial_players_connected" );
 	self iPrintLn( "^5Mob of the Dead EE Quests in Easy Difficulty" );
 }
