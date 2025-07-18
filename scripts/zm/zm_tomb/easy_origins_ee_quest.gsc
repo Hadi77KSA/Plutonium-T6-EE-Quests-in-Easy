@@ -4,7 +4,7 @@
 
 main()
 {
-	replaceFunc( maps\mp\zm_tomb_ee_main::init, ::easy_ee_main_init );
+	replaceFunc( maps\mp\zm_tomb_ee_main::init, ::init_func );
 }
 
 init()
@@ -28,7 +28,7 @@ display_mod_message()
 	self iPrintLn( "^5Origins EE Quest in Easy Difficulty" );
 }
 
-easy_ee_main_init()
+init_func()
 {
 	registerclientfield( "actor", "ee_zombie_fist_fx", 14000, 1, "int" );
 	registerclientfield( "actor", "ee_zombie_soul_portal", 14000, 1, "int" );

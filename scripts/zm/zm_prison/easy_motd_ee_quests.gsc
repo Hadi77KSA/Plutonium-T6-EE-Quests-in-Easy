@@ -8,15 +8,15 @@
 
 main()
 {
-	replaceFunc( maps\mp\zm_prison_spoon::init, ::easy_spoon_init );
-	replaceFunc( maps\mp\zm_prison_sq_bg::init, ::easy_sq_bg_init );
-	replaceFunc( maps\mp\zm_alcatraz_sq::start_alcatraz_sidequest, ::easy_start_alcatraz_sidequest );
-	replaceFunc( maps\mp\zm_prison_sq_final::stage_one, ::easy_stage_one );
+	replaceFunc( maps\mp\zm_prison_spoon::init, ::spoon );
+	replaceFunc( maps\mp\zm_prison_sq_bg::init, ::sq_bg_reward );
+	replaceFunc( maps\mp\zm_alcatraz_sq::start_alcatraz_sidequest, ::start_alcatraz_sidequest );
+	replaceFunc( maps\mp\zm_prison_sq_final::stage_one, ::stage_one );
+	onplayerconnect_callback( ::tomahawk_upgrade_quest );
 }
 
 init()
 {
-	onplayerconnect_callback( ::easy_tomahawk_upgrade_quest );
 	thread onPlayerConnect();
 }
 
@@ -36,7 +36,7 @@ display_mod_message()
 	self iPrintLn( "^5Mob of the Dead EE Quests in Easy Difficulty" );
 }
 
-easy_spoon_init()
+spoon()
 {
 /* 	if ( isdefined( level.gamedifficulty ) && level.gamedifficulty == 0 )
 	{
@@ -60,7 +60,7 @@ easy_spoon_init()
 #/
 }
 
-easy_sq_bg_init()
+sq_bg_reward()
 {
 /* 	if ( isdefined( level.gamedifficulty ) && level.gamedifficulty == 0 )
 	{
@@ -73,7 +73,7 @@ easy_sq_bg_init()
 	level thread maps\mp\zm_prison_sq_bg::wait_for_initial_conditions();
 }
 
-easy_start_alcatraz_sidequest()
+start_alcatraz_sidequest()
 {
 	maps\mp\zm_alcatraz_sq::init();
 	onplayerconnect_callback( ::player_disconnect_watcher );
@@ -124,7 +124,7 @@ easy_start_alcatraz_sidequest()
 	maps\mp\zm_alcatraz_sq_vo::opening_vo();
 }
 
-easy_stage_one()
+stage_one()
 {
 /* 	if ( isdefined( level.gamedifficulty ) && level.gamedifficulty == 0 )
 	{
@@ -179,7 +179,7 @@ easy_stage_one()
 	level thread stage_two();
 }
 
-easy_tomahawk_upgrade_quest()
+tomahawk_upgrade_quest()
 {
 	if ( !( isdefined( level.gamedifficulty ) && level.gamedifficulty == 0 ) )
 		return;
