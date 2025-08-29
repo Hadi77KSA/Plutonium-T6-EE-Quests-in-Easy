@@ -36,7 +36,7 @@ onPlayerConnect()
 msg()
 {
 	self endon( "disconnect" );
-	flag_wait( "initial_players_connected" );
+	common_scripts\utility::flag_wait( "initial_players_connected" );
 	self iPrintLn( "^5EE Quests in Easy Difficulty" );
 }
 
