@@ -43,6 +43,7 @@ msg()
 gameDifficulty()
 {
 	common_scripts\utility::flag_wait( "initial_blackscreen_passed" );
+	wait 1;
 	waittillframeend;
 	level.gamedifficulty = 0;
 }
